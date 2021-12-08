@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Form from './components/Form/Form';
 import Filter from './components/Filter/Filter';
 import Contacts from './components/Contacts/Contacts';
+import styles from './components/styles.module.css';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -50,13 +51,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className={(styles.container, styles.wrapper)}>
         <h1 className="title">Phonebook</h1>
         <Form onSubmit={this.addContact} />
         <h2 className="title">Contacts</h2>
         <Filter onChange={this.changeFilter} value={this.filter} />
         <Contacts
-          contacts={this.filterContacts()}
+          onFilter={this.filterContacts()}
           onDelete={this.deleteContact}
         />
       </div>

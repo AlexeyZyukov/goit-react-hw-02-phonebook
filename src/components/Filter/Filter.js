@@ -5,10 +5,10 @@ class Filter extends Component {
   render() {
     const { filter, onChange } = this.props;
     return (
-      <div className="filter-container">
-        <p className="title-text">Find contacts by name</p>
+      <div className="container">
+        <p className="filterTitle">Find contacts by name</p>
         <input
-          className="form__input"
+          className="formInput"
           type="text"
           name="filter"
           value={filter}

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 class Contacts extends Component {
   render() {
-    const { contacts, onDelete } = this.props;
+    const { onFilter, onDelete } = this.props;
     return (
-      <ul className="contact-list">
-        {contacts.map(({ id, name, number }) => {
+      <ul className="contactList">
+        {onFilter.map(({ id, name, number }) => {
           return (
-            <li className="contact-list__item" key={id}>
+            <li className="contactListItem" key={id}>
               <p>{name}</p>
               <p>{number}</p>
               <button className="button" onClick={() => onDelete(id)} id={id}>

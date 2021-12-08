@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+
 class Form extends Component {
   state = {
     name: '',
     number: '',
   };
 
-  handleChange = e => {
-    const { name, value } = e.currentTarget;
+  handleChange = evt => {
+    const { name, value } = evt.currentTarget;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    // console.log(this.state);
+  handleSubmit = evt => {
+    evt.preventDefault();
     this.props.onSubmit(this.state);
     this.reset();
   };
@@ -30,9 +30,9 @@ class Form extends Component {
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         <label>
-          <p className="form__lable">Name </p>
+          <p className="formLabel">Name </p>
           <input
-            className="form__input"
+            className="formInput"
             id={contactId}
             type="text"
             name="name"
@@ -43,10 +43,10 @@ class Form extends Component {
             required
           />
         </label>
-        <label className="form__lable">
-          <p className="form__lable"> Number</p>
+        <label className="formLabel">
+          <p className="formLabel"> Number</p>
           <input
-            className="form__input"
+            className="formInput"
             id={contactId}
             type="tel"
             name="number"
