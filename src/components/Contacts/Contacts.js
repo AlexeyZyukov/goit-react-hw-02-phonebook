@@ -6,7 +6,7 @@ class Contacts extends Component {
   render() {
     const { onFilter, onDelete } = this.props;
     return (
-      <ul className="contactList">
+      <ul className={styles.contactList}>
         {onFilter.map(({ id, name, number }) => {
           return (
             <li className={styles.contactListItem} key={id}>
