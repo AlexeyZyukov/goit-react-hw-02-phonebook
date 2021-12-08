@@ -30,8 +30,8 @@ class Form extends Component {
     const contactId = uuidv4();
     return (
       <form className={styles.form} onSubmit={this.handleSubmit}>
-        <label>
-          <p className="formLabel">Name </p>
+        <label className="formLabel">
+          <p className={styles.inputName}>Name </p>
           <input
             className={styles.formInput}
             id={contactId}
@@ -45,7 +45,7 @@ class Form extends Component {
           />
         </label>
         <label className="formLabel">
-          <p className="formLabel"> Number</p>
+          <p className={styles.inputName}> Number</p>
           <input
             className={styles.formInput}
             id={contactId}

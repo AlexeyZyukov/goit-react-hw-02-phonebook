@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #a9f7dd;
 }
 
 .form {
@@ -13,4 +14,12 @@
 }
 .formInput {
   margin-bottom: 10px;
+}
+.contactListItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.contactListItem:not(:last-of-type) {
+  margin-bottom: 5px;
 }
