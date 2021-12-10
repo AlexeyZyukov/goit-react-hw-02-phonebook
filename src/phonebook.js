@@ -75,6 +75,7 @@ export default class Phonebook extends Component {
     return (
       <div className={styles.wrapper}>
         <Fragment>
+          <h1 className="title">Phonebook</h1>
           <form className={styles.form} onSubmit={this.handleSubmit}>
             <label className="formLabel">
               <p className={styles.inputName}>Name </p>
