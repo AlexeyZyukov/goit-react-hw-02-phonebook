@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import App from './App';
+// import App from './App';
+import Phonebook from './phonebook';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Phonebook />
   </React.StrictMode>,
   document.querySelector('#root'),
 );
