@@ -26,7 +26,6 @@ export default class Phonebook extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     this.addContact(this.state);
-    // this.props.onSubmit(this.state); //передано App = onSubmit={this.addContact}
     this.reset();
   };
 
@@ -74,71 +73,73 @@ export default class Phonebook extends Component {
   render() {
     const contactId = uuidv4();
     return (
-      <Fragment>
-        <form className={styles.form} onSubmit={this.handleSubmit}>
-          <label className="formLabel">
-            <p className={styles.inputName}>Name </p>
-            <input
-              className={styles.formInput}
-              id={contactId}
-              type="text"
-              name="name"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-              value={this.state.name}
-              onChange={this.handleChange}
-              required
-            />
-          </label>
-          <label className="formLabel">
-            <p className={styles.inputName}> Number</p>
-            <input
-              className={styles.formInput}
-              id={contactId}
-              type="tel"
-              name="number"
-              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки"
-              value={this.state.number}
-              onChange={this.handleChange}
-              required
-            />
-          </label>
+      <div className={styles.wrapper}>
+        <Fragment>
+          <form className={styles.form} onSubmit={this.handleSubmit}>
+            <label className="formLabel">
+              <p className={styles.inputName}>Name </p>
+              <input
+                className={styles.formInput}
+                id={contactId}
+                type="text"
+                name="name"
+                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+                value={this.state.name}
+                onChange={this.handleChange}
+                required
+              />
+            </label>
+            <label className="formLabel">
+              <p className={styles.inputName}> Number</p>
+              <input
+                className={styles.formInput}
+                id={contactId}
+                type="tel"
+                name="number"
+                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки"
+                value={this.state.number}
+                onChange={this.handleChange}
+                required
+              />
+            </label>
 
-          <button type="submit" className="button">
-            Add contact
-          </button>
-        </form>
-        //====filter====
-        <div className="container">
-          <p className="filterTitle">Find contacts by name</p>
-          <input
-            className="formInput"
-            type="text"
-            name="filter"
-            value={this.filter}
-            onChange={this.changeFilter}
-          />
-        </div>
-        //============contacts===========
-        <ul className={styles.contactList}>
-          {this.filterContacts().map(({ id, name, number }) => {
-            return (
-              <li className={styles.contactListItem} key={id}>
-                <p>{name}</p>
-                <p>{number}</p>
-                <button
-                  className="button"
-                  onClick={() => this.deleteContact(id)}
-                  id={id}
-                >
-                  Delete contact
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </Fragment>
+            <button type="submit" className="button">
+              Add contact
+            </button>
+          </form>
+          //====filter====
+          <div className="container">
+            <p className="filterTitle">Find contacts by name</p>
+            <input
+              className="formInput"
+              type="text"
+              name="filter"
+              value={this.filter}
+              onChange={this.changeFilter}
+            />
+          </div>
+          //============contacts===========
+          <ul className={styles.contactList}>
+            {this.filterContacts().map(({ id, name, number }) => {
+              return (
+                <li className={styles.contactListItem} key={id}>
+                  <p>{name}</p>
+                  <p>{number}</p>
+                  <button
+                    className="button"
+                    onClick={() => this.deleteContact(id)}
+                    id={id}
+                  >
+                    Delete contact
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </Fragment>
+      </div>
     );
   }
 }
