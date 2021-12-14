@@ -51,7 +51,7 @@ export default class App extends Component {
     return (
       <div className={(styles.container, styles.wrapper)}>
         <h1 className="title">Phonebook</h1>
-        <Form onSubmit={this.addContact} />
+        <Form onFormSubmit={this.addContact} />
         <h2 className="title">Contacts</h2>
         <Filter onChange={this.changeFilter} value={this.filter} />
         <Contacts
